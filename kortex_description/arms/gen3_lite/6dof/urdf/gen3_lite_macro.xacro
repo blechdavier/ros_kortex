@@ -191,7 +191,23 @@
       <axis xyz="0 0 1" />
       <limit lower="-2.53" upper="2.53" effort="7" velocity="1.6" />
     </joint>
-    <link name="${prefix}end_effector_link"/>
+    <link name="${prefix}end_effector_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="3.1415 0 1.5708" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/camera_stuff.stl" />
+        </geometry>
+        <material name="">
+          <color rgba="0.803 0.824 0.820 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="3.1415 0 1.5708" />
+        <geometry>
+          <mesh filename="package://kortex_description/arms/gen3_lite/${dof}dof/meshes/camera_stuff.stl" />
+        </geometry>
+      </collision>
+    </link>
     <joint name="${prefix}joint_6" type="revolute">
       <origin xyz="-0.105 0 0.0285" rpy="0 -1.5708 0" />
       <parent link="${prefix}upper_wrist_link" />
